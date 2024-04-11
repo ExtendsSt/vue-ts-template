@@ -4,7 +4,12 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  -webkit-user-scalable: no;
+  -moz-user-scalable: no;
+  -ms-user-scalable: no;
+  user-scalable: no;
 }
+
 
 html.dark {
   background: #121212;
