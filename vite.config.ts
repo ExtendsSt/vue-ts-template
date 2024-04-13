@@ -10,6 +10,8 @@ import VueMacros from 'unplugin-vue-macros/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { unheadComposablesImports } from 'unhead'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
+import Layouts from 'vite-plugin-vue-layouts'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
   resolve: {
@@ -33,6 +35,9 @@ export default defineConfig({
     // https://github.com/posva/unplugin-vue-router
     VueRouter(),
 
+    // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
+    Layouts(),
+
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: [
@@ -47,7 +52,8 @@ export default defineConfig({
       ],
       dts: true,
       dirs: [
-        './src/utils/composables',
+        'src/utils/composables',
+        'src/stores',
       ],
       vueTemplate: true,
     }),
@@ -60,6 +66,9 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
     UnoCSS(),
+
+    // https://github.com/webfansplz/vite-plugin-vue-devtools
+    VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest

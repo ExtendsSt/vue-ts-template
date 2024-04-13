@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router/auto'
+import { setupLayouts } from 'virtual:generated-layouts'
 import type { VueApp } from 'types'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  extendRoutes: routes => setupLayouts(routes),
+  history: createWebHistory(),
 })
 
 // 全局前置守卫
