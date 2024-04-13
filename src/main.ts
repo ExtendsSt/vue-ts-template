@@ -3,7 +3,6 @@ import App from './App.vue'
 import { installAll } from '~/modules'
 
 import '@unocss/reset/tailwind.css'
-import './styles/main.css'
 import 'uno.css'
 
 const app = createApp(App)

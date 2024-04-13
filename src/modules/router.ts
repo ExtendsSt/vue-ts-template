@@ -1,14 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import index from '~/pages/index.vue'
-
-import type { VueApp } from '~/types'
-
-const routes = [
-  { path: '/', component: index },
-]
+import { createRouter, createWebHistory } from 'vue-router/auto'
+import type { VueApp } from 'types'
 
 const router = createRouter({
-  routes, // 注册文件路由表
   history: createWebHistory(import.meta.env.BASE_URL),
 })
 

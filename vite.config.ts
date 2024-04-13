@@ -7,8 +7,9 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import UnoCSS from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
-import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import VueRouter from 'unplugin-vue-router/vite'
 import { unheadComposablesImports } from 'unhead'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 export default defineConfig({
   resolve: {
@@ -29,22 +30,24 @@ export default defineConfig({
         }),
       },
     }),
+    // https://github.com/posva/unplugin-vue-router
+    VueRouter(),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: [
         'vue',
-        'vue-i18n',
         '@vueuse/core',
+        VueRouterAutoImports,
         unheadComposablesImports[0],
         {
+          'vue-router/auto': ['useLink'],
           // add any other imports you were relying on
-
         },
       ],
       dts: true,
       dirs: [
-        './src/composables',
+        './src/utils/composables',
       ],
       vueTemplate: true,
     }),
@@ -52,16 +55,11 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-components
     Components({
       dts: true,
-      resolvers: [],
     }),
 
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
     UnoCSS(),
-    // https://vue-i18n.intlify.dev
-    VueI18n({
-      include: [path.resolve(__dirname, 'locales/**')],
-    }),
   ],
 
   // https://github.com/vitest-dev/vitest

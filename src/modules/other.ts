@@ -1,9 +1,9 @@
 import { createHead } from '@unhead/vue'
-import type { VueApp } from '~/types'
-import copy from '~/directives/copy'
-import debounce from '~/directives/debounce'
-import throttle from '~/directives/throttle'
-import draggable from '~/directives/draggable'
+import type { VueApp } from 'types'
+import copy from '~/utils/directives/copy'
+import debounce from '~/utils/directives/debounce'
+import throttle from '~/utils/directives/throttle'
+import draggable from '~/utils/directives/draggable'
 
 // Setup unhead head标签管理库
 // https://unhead.unjs.io
@@ -21,5 +21,5 @@ export const setupOther: VueApp = (app) => {
   // 开发环境
   if (import.meta.env.DEV)
     // 使用mock数据
-    import('~/mocks')
+    import('~/apis/mocks')
 }
