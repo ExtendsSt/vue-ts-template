@@ -28,3 +28,4 @@ export const setupRouter: VueApp = async (app) => {
   app.use(router)
   await router.isReady()
 }
+export default router

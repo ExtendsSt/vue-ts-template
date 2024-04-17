@@ -65,7 +65,9 @@ export default defineConfig({
 
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
-    UnoCSS(),
+    UnoCSS({
+      mode: 'vue-scoped',
+    }),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     VueDevTools(),

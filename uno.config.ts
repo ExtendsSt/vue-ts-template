@@ -14,11 +14,15 @@ export default defineConfig({
     ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
     ['icon-btn', 'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'],
     ['flex-center', 'flex items-center justify-center'],
-    [/^i-(.*)$/, ([,c]) => `i-${c} dark:text-#ffffff`],
-  ],
-  rules: [
+    [/^i-(.*)$/, ([,c]) => `i-${c} dark:text-#ffffff active:dark:text-#ffffff`],
   ],
   theme: {
+    colors: {
+      pc: '#18a058',
+      pch: '#36ad6a',
+      pcp: '#0c7a43',
+      pcs: '#36ad6a',
+    },
   },
   presets: [
     presetUno(),
@@ -33,19 +37,20 @@ export default defineConfig({
         ),
       },
     }),
-    presetWebFonts({
-      fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
-      },
-    }),
+    presetWebFonts(),
   ],
   transformers: [
     transformerDirectives(),
     transformerVariantGroup(),
   ],
   safelist: [
+    'i-ant-design:dashboard-outlined',
+    'i-carbon-user-profile',
     'i-my-icon-logo',
+    '!color-pc',
+    'i-ant-design:reload-outlined',
+    'i-ant-design:close-outlined',
+    'i-ant-design:column-width-outlined',
+    'i-ant-design:minus-outlined',
   ],
 })
