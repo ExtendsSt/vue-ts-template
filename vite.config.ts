@@ -11,6 +11,7 @@ import VueRouter from 'unplugin-vue-router/vite'
 import { unheadComposablesImports } from 'unhead'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Layouts from 'vite-plugin-vue-layouts'
+import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
@@ -67,6 +68,14 @@ export default defineConfig({
     // see uno.config.ts for config
     UnoCSS({
       mode: 'vue-scoped',
+    }),
+
+    // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
+    VueI18n({
+      runtimeOnly: true,
+      compositionOnly: true,
+      fullInstall: true,
+      include: [path.resolve(__dirname, 'locales/**')],
     }),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools

@@ -1,0 +1,7 @@
+app:
+  description: A platform created by Code Dream Technology for rapid development projects
+  locale: En
+  title:
+    home: Home
+    login: Login
+    not-found: NOT FOUND

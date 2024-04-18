@@ -1,0 +1,7 @@
+app:
+  description: 码梦科技制作的用于快速开发项目的平台
+  locale: 中
+  title:
+    home: 首页
+    login: 登录
+    not-found: 未找到页面
